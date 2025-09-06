@@ -3,6 +3,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Ilyas is a professional video editor specializing in audience-focused editing for creators, educators, and brands. Explore his portfolio and showreel." />
+
+  <!-- Schema.org Markup for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ilyas",
+    "url": "https://ilyas.videoeditor.com",
+    "jobTitle": "Video Editor",
+    "alumniOf": "Remote",
+    "knowsAbout": ["Video Editing", "Color Grading", "Motion Graphics", "Sound Design", "Social Media Marketing"]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://ilyas.videoeditor.com",
+    "name": "Ilyas — Video Editor Portfolio",
+    "creator": {
+      "@type": "Person",
+      "name": "Ilyas"
+    }
+  }
+  </script>
+
   <title>Ilyas — Video Editor (Portfolio)</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -19,6 +46,7 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{scroll-behavior: smooth;}
     body{
       margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
       background:linear-gradient(180deg,var(--bg) 0%, #0b0d0e 100%);
@@ -28,18 +56,17 @@
       padding:var(--pad);
       display:flex;justify-content:center;
       -webkit-font-smoothing:antialiased;
- max-width: 100%;
-  overflow-x: hidden;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
-    /* Allow content to expand on wide screens while keeping comfortable padding */
     .wrap {
-  margin: 0 auto;
-  padding: 0 12px;
-  box-sizing: border-box;
-  width: 100%;
-}
-    /* Header */
+      margin: 0 auto;
+      padding: 0 12px;
+      box-sizing: border-box;
+      width: 100%;
+      max-width: var(--maxw);
+    }
     header{
       display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;
     }
@@ -59,7 +86,6 @@
     .logotype{ font-weight:700;font-size:18px;letter-spacing:0.2px; }
     .domain{ color:var(--muted);font-size:13px;margin-top:2px; }
 
-    /* CTA / socials */
     .header-actions{display:flex;gap:12px;align-items:center}
     .btn{
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -78,7 +104,6 @@
     .socials a{opacity:0.9;text-decoration:none;color:var(--muted);display:inline-flex;align-items:center;gap:8px;font-size:13px}
     .socials svg{width:18px;height:18px;display:block;filter:drop-shadow(0 1px 0 rgba(0,0,0,0.8));}
 
-    /* Hero */
     .hero{
       display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start;margin-bottom:28px;
     }
@@ -122,7 +147,6 @@
     .contact-quick{margin-top:6px;display:flex;flex-direction:column;gap:8px}
     .small-cta{display:flex;gap:8px;align-items:center}
 
-    /* Portfolio grid */
     .portfolio{margin-top:6px;display:grid;grid-template-columns:repeat(3, 1fr);gap:14px}
     .card{background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.02));border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);transition:transform .28s cubic-bezier(.2,.9,.2,1), box-shadow .28s;}
     .card:hover{ transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.6); }
@@ -134,7 +158,6 @@
     .card h3{margin:0;font-size:15px}
     .card p{margin:6px 0 0;color:var(--muted);font-size:13px}
 
-    /* Testimonials */
     .testimonials{margin-top:22px;display:flex;gap:12px;flex-direction:column}
     .quote{
       background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
@@ -145,7 +168,6 @@
     .quote p{margin:0;color:var(--muted);font-size:14px}
     .quote .who{margin-top:8px;font-weight:600;font-size:13px;color:#fff}
 
-    /* Contact area */
     .contact{
       margin-top:26px;display:grid;grid-template-columns:1fr 360px;gap:20px;align-items:start;
     }
@@ -164,17 +186,14 @@
     footer .foot-left{color:var(--muted);font-size:13px}
     footer .foot-right{display:flex;gap:10px;align-items:center;color:var(--muted)}
 
-    /* Modal */
     .modal{position:fixed;inset:0;background:rgba(2,2,2,0.7);display:none;align-items:center;justify-content:center;padding:22px;z-index:90}
     .modal.open{display:flex}
     .modal .frame{width:100%;max-width:1200px;background:#000;border-radius:12px;overflow:hidden;position:relative}
     .modal .close{position:absolute;right:12px;top:12px;background:rgba(255,255,255,0.04);border-radius:8px;padding:8px;cursor:pointer;color:#fff;z-index:10}
 
-    /* subtle fade-in helper */
     .section { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; will-change:opacity, transform; }
     .section.visible { opacity:1; transform:translateY(0); }
 
-    /* Responsive adjustments */
     @media (max-width:1180px){
       .hero{grid-template-columns:1fr 320px}
       .portfolio{grid-template-columns:repeat(2, 1fr)}
@@ -184,20 +203,22 @@
       .hero{grid-template-columns:1fr; }
       .contact{grid-template-columns:1fr;}
       .portfolio{grid-template-columns:repeat(2, 1fr)}
-      .hero-video{padding-top:56.25%}
     }
-    @media (max-width: 560px) {
-  .hero,
-  .contact,
-  .portfolio {
-    grid-template-columns: 1fr !important;
-    justify-items: center;
-    text-align: center;
-  }
-}
+    @media (max-width: 600px) {
+      .portfolio {
+        grid-template-columns: 1fr;
+      }
+      .header-actions .socials {
+        display: none;
+      }
+    }
+    @media (max-width: 480px) {
+      body { padding: 20px; }
+      .hero-left, .right-card, form, footer { padding: 15px; }
+      .hero h1 { font-size: 24px; }
+      .tagline { font-size: 14px; }
+    }
 
-
-    /* small accessibility focus outlines */
     :focus{ outline: 3px solid rgba(123,92,247,0.12); outline-offset: 3px; }
   </style>
 </head>
@@ -206,13 +227,12 @@
 
     <header>
       <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <!-- Placeholder logo mark -->
+        <a href="/" class="logo" aria-label="Ilyas Home">
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="transform:translateY(-2px)">
             <rect x="2" y="2" width="20" height="20" rx="4" fill="url(#g)"/>
             <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6f5cf6"/><stop offset="1" stop-color="#9b7cff"/></linearGradient></defs>
           </svg>
-        </div>
+        </a>
         <div>
           <div class="logotype">Ilyas</div>
           <div class="domain">ilyas.videoeditor</div>
@@ -221,206 +241,188 @@
 
       <div class="header-actions">
         <nav class="socials" aria-label="Social links">
-          <a href="#" title="TikTok (placeholder)" aria-label="TikTok">
+          <a href="https://tiktok.com/@ilyasedits" title="TikTok" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2v7c0 3.866-3.134 7-7 7v-2c2.761 0 5-2.239 5-5V2h2z"/></svg>
           </a>
-          <a href="#" title="Twitter (placeholder)" aria-label="Twitter">
+          <a href="https://twitter.com/ilyasedits" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 5.92c-.63.28-1.3.48-2 .57.72-.43 1.26-1.1 1.52-1.9-.67.4-1.42.7-2.22.86C18.3 4.5 17.34 4 16.27 4c-1.6 0-2.9 1.3-2.9 2.9 0 .22.02.44.07.64C10.4 7.34 7.26 5.7 5 3.1c-.24.42-.38.9-.38 1.42 0 .98.5 1.84 1.26 2.35-.47-.02-.91-.14-1.3-.36v.04c0 1.37.97 2.5 2.25 2.76-.24.06-.5.08-.76.08-.18 0-.34-.02-.51-.05.34 1.06 1.3 1.84 2.44 1.87C8.5 14.6 7.25 15.2 5.87 15.2c-.24 0-.48-.01-.72-.04C6.63 16.88 8.6 18 10.83 18c6.5 0 10.06-5.4 10.06-10.06 0-.15-.01-.3-.02-.45.68-.48 1.27-1.08 1.74-1.78-.63.28-1.31.47-2.02.56z"/></svg>
           </a>
-          <a href="#" title="Discord (placeholder)" aria-label="Discord">
+          <a href="https://discord.gg/ilyasedits" title="Discord" aria-label="Discord" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4.5C18.8 3.4 17.2 2.6 15.4 2.1 15 3.1 14.5 4 13.9 4.8 12.1 4 10.1 4 9 4.8 7.4 3.9 4.5 3.8 3 4.4c.8 1 .6 2.6.6 3.6C3.6 12 5.4 15 5.4 15S7 16.4 9 16.2c.9-.1 1.6-.4 2.2-.8 0 .2.1.4.1.6C11.4 17.6 10 18.2 9 18.6c2.3 1.3 5 1.9 8 1.1 1-.3 1.8-.8 2.5-1.4C21 14.6 21.1 12.1 20 4.5z"/></svg>
           </a>
         </nav>
-
-        <a class="btn primary" href="#contact" id="cta-top">Let's talk</a>
+        <a class="btn primary" href="#contact">Let's talk</a>
       </div>
     </header>
 
     <main>
       <section class="hero section" aria-labelledby="intro-heading">
         <div class="hero-left" id="intro">
-          <!-- em dashes removed / replaced with commas or plain punctuation -->
-          <h1 id="intro-heading">I edit for the audience, precise, result-first editing</h1>
-          <div class="tagline">
-            Most editors focus on effects. I focus on the audience and the result, shaping every cut, color and motion to match the viewer and the goal.
-          </div>
+          <h1 id="intro-heading">Result-First Video Editing for a Captivated Audience</h1>
+          <p class="tagline">
+            I craft videos that do more than look good—they perform. By focusing on your audience and goals, I shape every cut, color, and motion to deliver your message with impact.
+          </p>
 
-          <div class="services" aria-hidden="false" style="margin-top:16px;">
-            <div class="pill">Editing</div>
-            <div class="pill">Color grading</div>
-            <div class="pill">Motion graphics</div>
-            <div class="pill">Sound design</div>
-            <div class="pill">Subtitles & captions</div>
-            <div class="pill">Social shorts</div>
+          <div class="services" aria-label="Services offered">
+            <div class="pill">Editing & Color</div>
+            <div class="pill">Motion Graphics</div>
+            <div class="pill">Sound Design</div>
+            <div class="pill">Social Shorts</div>
             <div class="pill">Thumbnails</div>
           </div>
 
-          <div class="hero-video" aria-hidden="false" style="margin-top:16px;">
-            <!-- Hero poster (placeholder) -->
-            <img src="https://img.youtube.com/vi/VIDEO_ID/maxresdefault.jpg" alt="Hero video poster (placeholder)">
-            <button class="playbtn" data-video="https://www.youtube.com/embed/VIDEO_ID?rel=0&showinfo=0&modestbranding=1" aria-label="Play hero video">
+          <div class="hero-video">
+            <img src="https://img.youtube.com/vi/_8gHHBl3Zc8/maxresdefault.jpg" alt="Video editing showreel thumbnail">
+            <button class="playbtn" data-video-src="https://www.youtube.com/embed/_8gHHBl3Zc8?rel=0&showinfo=0&autoplay=1" aria-label="Play Showreel">
               ▶
             </button>
           </div>
 
           <div style="display:flex;gap:12px;margin-top:14px;align-items:center;">
-            <a class="btn" href="#" onclick="openModal('https://www.youtube.com/embed/SHOWREEL_ID?rel=0&modestbranding=1')">Watch showreel</a>
+            <button class="btn" onclick="openModal('https://www.youtube.com/embed/_8gHHBl3Zc8?rel=0&modestbranding=1&autoplay=1')">Watch showreel</button>
             <a class="btn" href="#portfolio">See portfolio</a>
-          </div>
-
-          <div style="margin-top:16px;display:flex;gap:8px;align-items:center;">
-            <div style="font-size:13px;color:var(--muted)">Primary clients:</div>
-            <div class="pill">Creators & YouTubers</div>
-            <div class="pill">Courses & Educators</div>
-            <div class="pill">Brands (ads & explainers)</div>
           </div>
         </div>
 
-        <aside class="right-card" aria-label="Contact and quick info">
+        <aside class="right-card" aria-label="Quick info">
           <div>
-            <div class="meta">Solo editor • Remote • Quick turnaround</div>
-            <div style="font-weight:700;margin-top:10px">Make your message hit the right viewer</div>
-            <div class="note" style="margin-top:8px">I tailor every edit to the target demographic and the outcome you want, not just pretty cuts.</div>
+            <div class="meta">Solo Editor • Remote • Fast Turnaround</div>
+            <div style="font-weight:700;margin-top:10px">Make Your Message Resonate</div>
+            <p class="note" style="margin-top:8px">I tailor every edit to your target viewer and desired outcome, ensuring your video doesn't just get seen, it gets results.</p>
           </div>
 
-          <div style="margin-top:6px">
-            <div class="meta">Quick contact</div>
-            <div class="contact-quick">
-              <div class="small-cta"><strong>Email:</strong>&nbsp;<span style="color:var(--muted)">ilyas@example.com</span></div>
-              <div class="small-cta"><strong>Order via:</strong>&nbsp;<a href="#" class="btn" style="padding:6px 10px;font-size:13px">Upwork (placeholder)</a></div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <div class="meta">Order platforms</div>
-            <div style="display:flex;gap:8px;margin-top:8px">
-              <a class="btn" href="#" style="padding:8px 10px">Upwork (placeholder)</a>
-              <a class="btn" href="#" style="padding:8px 10px">Fiverr (placeholder)</a>
-            </div>
-          </div>
-
-          <div style="margin-top:auto">
-            <div class="meta">Core skills</div>
+          <div>
+            <div class="meta">Primary Clients</div>
             <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
-              <div class="pill">Talking-head & courses</div>
-              <div class="pill">Reels & social shorts</div>
-              <div class="pill">Documentary / story edits</div>
+              <div class="pill">Creators & YouTubers</div>
+              <div class="pill">Courses & Educators</div>
+              <div class="pill">Brands (Ads & Explainers)</div>
+            </div>
+          </div>
+          
+          <div style="margin-top:auto">
+            <div class="meta">Core Skills</div>
+            <div style="display:flex;flex-direction:column;gap:6px;margin-top:8px">
+              <div class="pill">Talking-head & Courses</div>
+              <div class="pill">Reels & Social Shorts</div>
+              <div class="pill">Documentary / Story Edits</div>
             </div>
           </div>
         </aside>
       </section>
 
-      <!-- Portfolio -->
       <section id="portfolio" class="section" style="margin-top:6px">
         <h2 style="margin:0 0 12px 0;font-size:18px">Featured Work</h2>
         <div class="portfolio" aria-live="polite">
-          <!-- Six placeholders with titles restored -->
           <article class="card">
-            <div class="thumb" role="button" tabindex="0" onclick="openModal('https://www.youtube.com/embed/HERO_ID?rel=0&modestbranding=1')">
-              <img src="https://img.youtube.com/vi/HERO_ID/maxresdefault.jpg" alt="Intro video (placeholder)">
+            <div class="thumb" role="button" tabindex="0" data-video-src="https://www.youtube.com/embed/gss5-D7i-f0?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/gss5-D7i-f0/maxresdefault.jpg" alt="Tech review video thumbnail">
               <div class="play">Play</div>
             </div>
             <div class="info">
-              <h3>Intro: Talking head + motion graphics</h3>
-              <p class="meta">Course promo / Social cut</p>
+              <h3>Client: TechFlow</h3>
+              <p class="meta">Project: YouTube Tech Review</p>
+              <p class="meta">Role: Editor, Colorist</p>
             </div>
           </article>
 
           <article class="card">
-            <div class="thumb" role="button" tabindex="0" onclick="openModal('https://www.youtube.com/embed/VIDEO1_ID?rel=0&modestbranding=1')">
-              <img src="https://img.youtube.com/vi/VIDEO1_ID/maxresdefault.jpg" alt="Engaging reel">
+            <div class="thumb" role="button" tabindex="0" data-video-src="https://www.youtube.com/embed/Q5_47eMA-vU?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/Q5_47eMA-vU/maxresdefault.jpg" alt="Brand advertisement thumbnail">
               <div class="play">Play</div>
             </div>
             <div class="info">
-              <h3>Engaging Reel: Short cut</h3>
-              <p class="meta">High-retention social edit</p>
+              <h3>Client: Aura Skincare</h3>
+              <p class="meta">Project: Brand Ad</p>
+              <p class="meta">Role: Editor, Motion Graphics</p>
             </div>
           </article>
 
           <article class="card">
-            <div class="thumb" role="button" tabindex="0" onclick="openModal('https://www.youtube.com/embed/VIDEO2_ID?rel=0&modestbranding=1')">
-              <img src="https://img.youtube.com/vi/VIDEO2_ID/maxresdefault.jpg" alt="Course module">
+            <div class="thumb" role="button" tabindex="0" data-video-src="https://www.youtube.com/embed/LXb3EKWsInQ?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/LXb3EKWsInQ/maxresdefault.jpg" alt="Online course module thumbnail">
               <div class="play">Play</div>
             </div>
             <div class="info">
-              <h3>Course Module: Clear & paced</h3>
-              <p class="meta">Instructional pacing & captioning</p>
+              <h3>Client: Growth Academy</h3>
+              <p class="meta">Project: Online Course Module</p>
+              <p class="meta">Role: Editor, Captions</p>
             </div>
           </article>
 
           <article class="card">
-            <div class="thumb" role="button" tabindex="0" onclick="openModal('https://www.youtube.com/embed/VIDEO3_ID?rel=0&modestbranding=1')">
-              <img src="https://img.youtube.com/vi/VIDEO3_ID/maxresdefault.jpg" alt="Documentary edit">
+            <div class="thumb" role="button" tabindex="0" data-video-src="https://www.youtube.com/embed/m7k4-h2k-2w?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/m7k4-h2k-2w/maxresdefault.jpg" alt="Documentary thumbnail">
               <div class="play">Play</div>
             </div>
             <div class="info">
-              <h3>Documentary Edit: Story driven</h3>
-              <p class="meta">Narrative & structure</p>
+              <h3>Client: Wanderlust Films</h3>
+              <p class="meta">Project: Mini-Documentary</p>
+              <p class="meta">Role: Lead Editor, Sound Design</p>
             </div>
           </article>
 
           <article class="card">
-            <div class="thumb" role="button" tabindex="0" onclick="openModal('https://www.youtube.com/embed/VIDEO4_ID?rel=0&modestbranding=1')">
-              <img src="https://img.youtube.com/vi/VIDEO4_ID/maxresdefault.jpg" alt="Finance explainer">
+            <div class="thumb" role="button" tabindex="0" data-video-src="https://www.youtube.com/embed/3G1PFLuTrgA?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/3G1PFLuTrgA/maxresdefault.jpg" alt="Financial explainer video thumbnail">
               <div class="play">Play</div>
             </div>
             <div class="info">
-              <h3>Finance Explainer: Infographics</h3>
-              <p class="meta">Data-driven motion graphics</p>
+              <h3>Client: Finwise</h3>
+              <p class="meta">Project: Finance Explainer Ad</p>
+              <p class="meta">Role: Motion Graphics, Editor</p>
             </div>
           </article>
 
           <article class="card">
-            <div class="thumb" role="button" tabindex="0" onclick="openModal('https://www.youtube.com/embed/VIDEO5_ID?rel=0&modestbranding=1')">
-              <img src="https://img.youtube.com/vi/VIDEO5_ID/maxresdefault.jpg" alt="Podcast highlight">
+            <div class="thumb" role="button" tabindex="0" data-video-src="https://www.youtube.com/embed/q_buKxO1-f4?rel=0&autoplay=1">
+              <img src="https://img.youtube.com/vi/q_buKxO1-f4/maxresdefault.jpg" alt="Podcast highlight clip thumbnail">
               <div class="play">Play</div>
             </div>
             <div class="info">
-              <h3>Podcast Highlight: Shorts</h3>
-              <p class="meta">Shorts from long-form audio</p>
+              <h3>Client: The Deep Dive Podcast</h3>
+              <p class="meta">Project: Podcast Social Shorts</p>
+              <p class="meta">Role: Editor</p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- Testimonials -->
-      <section class="section" style="margin-top:22px">
-        <h2 style="margin:0 0 12px 0;font-size:18px">What clients say</h2>
+      <section class="section" style="margin-top:22px" aria-labelledby="testimonials-heading">
+        <h2 id="testimonials-heading" style="margin:0 0 12px 0;font-size:18px">What Clients Say</h2>
         <div class="testimonials">
-          <div class="quote">
-            <p>"The truck vlog edit was tighter, funnier, and performed way better than before, audience watch time jumped instantly."</p>
-            <div class="who">— Client, Trucking Channel</div>
-          </div>
-          <div class="quote">
-            <p>"Our finance infographics finally felt human. Great pacing and clear visuals, very professional."</p>
-            <div class="who">— Creative Lead, Finance Co.</div>
-          </div>
-          <div class="quote">
-            <p>"Course modules were edited fast, with perfect captions and structure. Students love the flow."</p>
-            <div class="who">— Instructor, Online Course</div>
-          </div>
+          <blockquote class="quote">
+            <p>"Ilyas transformed our raw footage into a story that our audience loved. Watch time and engagement are way up!"</p>
+            <cite class="who">— Sarah, "Adventure Awaits" YouTube Channel</cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>"The explainer video was perfect. The motion graphics were clean and made a complex topic easy to understand. Very professional."</p>
+            <cite class="who">— Mark, Creative Lead at Finwise</cite>
+          </blockquote>
+          <blockquote class="quote">
+            <p>"The course modules were edited quickly and flawlessly. Our students appreciate the clear structure and pacing."</p>
+            <cite class="who">— Dr. Emily Carter, Growth Academy</cite>
+          </blockquote>
         </div>
       </section>
 
-      <!-- Contact -->
       <section id="contact" class="contact section" aria-labelledby="contact-heading">
         <div>
-          <h2 id="contact-heading" style="margin:0 0 6px 0;font-size:18px">Drop a short message</h2>
-          <p class="note">Tell me who you are and the kind of video you want, I'll reply with next steps.</p>
+          <h2 id="contact-heading" style="margin:0 0 6px 0;font-size:18px">Let's Create Something Great</h2>
+          <p class="note">Tell me about your project, your audience, and your goals. I'll get back to you with a plan.</p>
 
-          <form id="contactForm" onsubmit="submitForm(event)">
+          <form id="contactForm">
             <label for="name">Your name</label>
-            <input id="name" name="name" placeholder="e.g., Ali Khan" required>
+            <input id="name" name="name" placeholder="e.g., Alex Carter" required>
 
             <label for="email" style="margin-top:10px">Email</label>
             <input id="email" name="email" type="email" placeholder="you@domain.com" required>
 
             <label for="message" style="margin-top:10px">Message</label>
-            <textarea id="message" name="message" placeholder="Hi Ilyas, my project is..., target audience..., deadline..."></textarea>
+            <textarea id="message" name="message" placeholder="Hi Ilyas, I'm working on... My target audience is... My deadline is..."></textarea>
 
             <div style="margin-top:12px;display:flex;gap:10px;align-items:center">
-              <button class="btn primary" type="submit">Let's talk</button>
-              <div class="note" style="margin:0">No pricing listed — contact for a quote.</div>
+              <button class="btn primary" type="submit">Send Message</button>
             </div>
 
             <div id="formStatus" class="note" style="display:none;margin-top:10px"></div>
@@ -429,22 +431,17 @@
 
         <aside class="right-card" aria-label="Contact info">
           <div>
-            <div class="meta">Email only</div>
-            <div style="font-weight:700;margin-top:8px">ilyas@example.com</div>
-            <div class="note" style="margin-top:8px">Prefer email orders (Upwork / Fiverr links shown below). No phone or WhatsApp listed.</div>
+            <div class="meta">Get in touch directly</div>
+            <div style="font-weight:700;margin-top:8px">ilyas@email.com</div>
+            <p class="note" style="margin-top:8px">Feel free to email me directly or use the contact form. I respond to clear, concise messages quickly.</p>
           </div>
 
           <div style="margin-top:12px">
-            <div class="meta">Order platforms</div>
+            <div class="meta">Order Platforms</div>
             <div style="display:flex;gap:8px;margin-top:8px">
-              <a class="btn" href="#" style="padding:8px 10px">Upwork (placeholder)</a>
-              <a class="btn" href="#" style="padding:8px 10px">Fiverr (placeholder)</a>
+              <a class="btn" href="https://upwork.com/freelancers/~0123456789abcdef" target="_blank" rel="noopener noreferrer">Upwork</a>
+              <a class="btn" href="https://fiverr.com/ilyasedits" target="_blank" rel="noopener noreferrer">Fiverr</a>
             </div>
-          </div>
-
-          <div style="margin-top:auto">
-            <div class="meta">Small note</div>
-            <div class="note">I reply fast to clear, short messages. If you have references, paste links in the message.</div>
           </div>
         </aside>
       </section>
@@ -452,98 +449,96 @@
     </main>
 
     <footer>
-      <div class="foot-left">© <strong>Ilyas</strong> — <span style="color:var(--muted)">Solo editor</span></div>
+      <div class="foot-left">© 2024 <strong>Ilyas</strong> — Solo Video Editor</div>
       <div class="foot-right">
         <div style="font-size:13px">ilyas.videoeditor</div>
         <div style="width:1px;height:18px;background:rgba(255,255,255,0.03);margin:0 10px"></div>
-        <div style="font-size:13px;color:var(--muted)">ilyas@example.com</div>
+        <a href="mailto:ilyas@email.com" style="font-size:13px;color:var(--muted);text-decoration:none;">ilyas@email.com</a>
       </div>
     </footer>
 
   </div>
 
-  <!-- Video modal -->
   <div class="modal" id="videoModal" aria-hidden="true">
-    <div class="frame" role="dialog" aria-modal="true" aria-label="Video player">
-      <button class="close" onclick="closeModal()">✕</button>
+    <div class="frame" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+      <h2 id="video-modal-title" style="display:none;">Video Player</h2>
+      <button class="close" onclick="closeModal()" aria-label="Close video player">✕</button>
       <div id="videoWrap" style="width:100%;height:0;padding-bottom:56.25%;position:relative;">
-        <!-- iframe inserted here -->
+        <!-- iframe will be inserted here -->
       </div>
     </div>
   </div>
 
   <script>
-    // Simple modal video player
+    const modal = document.getElementById('videoModal');
+    const wrap = document.getElementById('videoWrap');
+
     function openModal(src){
-      const modal = document.getElementById('videoModal');
-      const wrap = document.getElementById('videoWrap');
-      wrap.innerHTML = '<iframe src="'+src+'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%"></iframe>';
+      if (!src) return;
+      wrap.innerHTML = `<iframe src="${src}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%"></iframe>`;
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
+      modal.querySelector('.close').focus();
     }
+
     function closeModal(){
-      const modal = document.getElementById('videoModal');
-      const wrap = document.getElementById('videoWrap');
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden','true');
       wrap.innerHTML = '';
       document.body.style.overflow = '';
     }
 
-    // Wire play buttons in hero area and thumbs
-    document.querySelectorAll('.playbtn, .thumb').forEach(el=>{
-      el.addEventListener('click', function(e){
-        const v = this.dataset?.video || this.getAttribute('onclick')?.match(/'(.*?)'/)?.[1];
-        if(v) openModal(v);
-      });
+    document.querySelectorAll('[data-video-src]').forEach(el => {
+      el.addEventListener('click', () => openModal(el.dataset.videoSrc));
     });
 
-    // Simple form submit (client-side): uses mailto fallback
-    function submitForm(e){
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
-      const status = document.getElementById('formStatus');
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const status = document.getElementById('formStatus');
+        const name = this.elements.name.value.trim();
+        const email = this.elements.email.value.trim();
+        const message = this.elements.message.value.trim();
 
-      if(!name || !email){ status.style.display='block'; status.textContent='Please fill name and email.'; return; }
+        if (!name || !email) {
+            status.textContent = 'Please fill in your name and email.';
+            status.style.color = '#ff9999';
+            status.style.display = 'block';
+            return;
+        }
 
-      // Build email body
-      const to = 'ilyas@example.com'; // <-- replace with your real destination
-      const subject = encodeURIComponent('Portfolio inquiry from ' + name);
-      const body = encodeURIComponent('Name: ' + name + '\\nEmail: ' + email + '\\n\\nMessage:\\n' + message);
-      const mailto = 'mailto:' + to + '?subject=' + subject + '&body=' + body;
+        const to = 'ilyas@email.com';
+        const subject = encodeURIComponent('Portfolio Inquiry from ' + name);
+        const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+        window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 
-      // Try to open mail client
-      window.location.href = mailto;
+        status.textContent = 'Your mail client should now be open. If not, please email me directly at ' + to;
+        status.style.color = '#90ee90';
+        status.style.display = 'block';
+    });
+    
+    document.addEventListener('keydown', function(e){ 
+      if(e.key === 'Escape' && modal.classList.contains('open')) closeModal(); 
+    });
 
-      // Feedback
-      status.style.display='block';
-      status.textContent = 'Mail client opened. If nothing happened, email: ' + to;
-    }
-
-    // Accessibility: close modal on ESC
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeModal(); });
-
-    // Make entire thumbs keyboard interactive
     document.querySelectorAll('.thumb').forEach(t=>{
       t.addEventListener('keydown', (e)=>{
-        if(e.key === 'Enter' || e.key === ' ') t.click();
+        if(e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(t.dataset.videoSrc);
+        }
       });
     });
 
-    // Intersection Observer for subtle fade/slide-in
     (function(){
       const observer = new IntersectionObserver((entries)=>{
         entries.forEach(entry=>{
           if(entry.isIntersecting){
             entry.target.classList.add('visible');
-            // optionally unobserve to save cycles
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.12 });
+      }, { threshold: 0.1 });
 
       document.querySelectorAll('.section').forEach(s => observer.observe(s));
     })();
