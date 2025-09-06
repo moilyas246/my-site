@@ -33,13 +33,12 @@
     }
 
     /* Allow content to expand on wide screens while keeping comfortable padding */
-    .wrap{
-      width:100%;
-      max-width:var(--maxw);
-      padding:0 28px;
-	padding: 0 16px;
-    }
-
+    .wrap {
+  margin: 0 auto;
+  padding: 0 12px;
+  box-sizing: border-box;
+  width: 100%;
+}
     /* Header */
     header{
       display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;
@@ -189,14 +188,11 @@
     }
     @media (max-width: 560px) {
   .hero,
-  .contact {
-    grid-template-columns: 1fr;
-  }
+  .contact,
   .portfolio {
-    grid-template-columns: 1fr;
-  }
-  .wrap {
-    padding: 0 12px;
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    text-align: center;
   }
 }
 
