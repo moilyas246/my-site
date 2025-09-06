@@ -28,6 +28,8 @@
       padding:var(--pad);
       display:flex;justify-content:center;
       -webkit-font-smoothing:antialiased;
+ max-width: 100%;
+  overflow-x: hidden;
     }
 
     /* Allow content to expand on wide screens while keeping comfortable padding */
@@ -35,6 +37,7 @@
       width:100%;
       max-width:var(--maxw);
       padding:0 28px;
+	padding: 0 16px;
     }
 
     /* Header */
@@ -184,12 +187,19 @@
       .portfolio{grid-template-columns:repeat(2, 1fr)}
       .hero-video{padding-top:56.25%}
     }
-    @media (max-width:560px){
-      body{padding:18px}
-      .portfolio{grid-template-columns:1fr}
-      header{flex-direction:column;align-items:flex-start;gap:12px}
-      .right-card{order:2}
-    }
+    @media (max-width: 560px) {
+  .hero,
+  .contact {
+    grid-template-columns: 1fr;
+  }
+  .portfolio {
+    grid-template-columns: 1fr;
+  }
+  .wrap {
+    padding: 0 12px;
+  }
+}
+
 
     /* small accessibility focus outlines */
     :focus{ outline: 3px solid rgba(123,92,247,0.12); outline-offset: 3px; }
